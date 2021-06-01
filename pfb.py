@@ -15,7 +15,7 @@ def sinc_window(ntap, lblock):
 
     Parameters
     ----------
-    ntaps : integer
+    ntap : integer
         Number of taps.
     lblock: integer
         Length of block. (lblock = 2*nchan)
@@ -33,24 +33,6 @@ def sinc_window(ntap, lblock):
 
     # np.sinc function is sin(pi*x)/pi*x, not sin(x)/x, so use X/pi
     return np.sinc(X / np.pi)
-
-
-def sinc_hanning(ntap, lblock):
-    """Hanning-sinc window function.
-
-    Parameters
-    ----------
-    ntaps : integer
-        Number of taps.
-    lblock: integer
-        Length of block.
-
-    Returns
-    -------
-    window : np.ndarray[ntaps * lblock]
-    """
-
-    return sinc_window(ntap, lblock) * np.hanning(ntap * lblock)
 
 
 def sinc_hamming(ntap, lblock):
